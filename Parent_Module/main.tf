@@ -5,6 +5,15 @@ module "resource_group" {
 
 }
 
+module "resource_group1" {
+  source              = "../module/azurerm_resource_module"
+  resource_group_name = "uday"
+  rg_location         = "West Europe"
+
+}
+
+
+
 module "virtual_network" {
   source              = "../module/azurerm_vnet_module"
   vm_name             = "meharvnet"
