@@ -22,6 +22,14 @@ module "virtual_network" {
   vm_address_space    = ["10.0.0.0/16"]
   depends_on          = [module.resource_group]
 }
+module "virtual_vnet" {
+  source              = "../module/azurerm_vnet_module"
+  vm_name             = "meharvirtual"
+  vm_location         = module.resource_group.rg_location
+  resource_group_name = module.resource_group.resource_group_name
+  vm_address_space    = ["10.0.1.0/16"]
+  depends_on          = [module.resource_group]
+}
 
 module "azurerm_subnet1" {
   source               = "../module/azurerm_subnet_module"
